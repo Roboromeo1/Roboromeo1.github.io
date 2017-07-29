@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title> Star Research  - An International Journal  </title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<!-- Materialize + jquery -->
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+<link rel="stylesheet" href="Css/base.css" />
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo"><h4>Star Research</h4><h5>An International Online Journal.</h5></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down text-black">
+      <li><a class="nav-links" href="index.html" class="menu">Home</a></li>
+      <li><a class="nav-links" href="Aboutus.html" class="menu">About us</a></li>
+      <li><a class="nav-links" href="CurrrentIssues.html" class="menu">Currrent Issues</a></li>
+      <li><a class="nav-links" href="archive-2.html" class="menu">Archive</a></li>
+      <li><a class="nav-links" href="Journal_Indexing.html" class="menu">Journal Indexing</a></li>
+      <li><a class="nav-links" href="Certificate.html"class="menu">Certificate</a></li>
+      <li><a class="nav-links" href="Editorial_Board.html"class="menu">Editorial Board</a></li>
+      <li><a class="nav-links" href="Contactus.html"class="menu">Contact us</a></li>
+      </ul>
+    </div>
+  </nav>
+
+	<script type="text/javascript">
+
+var count = "500";   //Example: var count = "175";
+
+function limiter(){
+
+var tex = document.article.abstract.value;
+
+var len = tex.length;
+
+if(len > count){
+
+        tex = tex.substring(0,count);
+
+        document.article.abstract.value =tex;
+
+        return false;
+
+}
+
+document.getElementById("limit").innerHTML = count-len;
+
+}
+
+function validate_fun()
+{
+	var email = $("#email").val();
+	var flag = true;
+	var msg = '';
+	var optional_email1 = $("#optional_email1").val();
+	var optional_email2 = $("#optional_email2").val();
+
+	if(optional_email1 != '')
+	{
+		if(email==optional_email1 && email!='') {
+			msg+= 'Alternate Email 1 should not be repeated \n';
+			flag = false;
+			
+		} 
+	}
+	if(optional_email2 != '' && email!='')
+	{
+		if(email==optional_email2) {
+			msg+= 'Alternate Email 2 should not be repeated \n';
+			flag = false;
+			
+		} 
+	} 
+	
+	if(optional_email1 != '' && optional_email2 != '')
+	{
+		if(optional_email1==optional_email2) {
+			msg+= 'Alternate Email 1 and Alternate Email 2 not be same \n';
+			flag = false;
+			
+		} 
+	}
+	
+	if(flag==false) {
+		alert(msg);
+		return false;
+	} else {
+		return true;
+	}
+
+
+}
+
+</script>
+
+
+<div id="primary" class="content-area">
+
+    <div id="content" class="site-content" role="main">
+
+        <div class="container"> 
+
+		
+
+            <!-- Example row of columns -->
+
+            <div class="row">
+
+                <div class="span9">
+
+					
+                    
+                        <header class="entry-header">
+
+                        	<h1 class="entry-title">Submit Articles</h1>
+
+                        </header>
+
+                        <div class="">
+
+                        	
+							
+                                <div class="articleform">
+
+									<script type="text/javascript">
+
+                                        $(document).ready(function(){
+
+                                            $("#article").validate({
+
+																	submitHandler: function(form) {
+
+																     $("#formloader").show();
+
+																    form.submit();
+
+																}
+
+														});
+
+                                        });
+
+                                    </script>
+
+									
+
+									<h4></h4>
+
+                                    <form action="r.html" method="post" id="article" name='article' enctype="multipart/form-data" onsubmit="return validate_fun();">
+
+                                     	<!--row-->
+
+                                        <div class="row">
+
+                                            <div class="span12"><h4>Article Detail:</h4></div>                                           
+
+                                        </div>
+
+                                        <!--row-->
+
+                                        <div class="row">
+
+                                            <div class="span4">Manuscript Title<span>*</span>: </div>
+
+                                            <div class="span8"><input type="text" name="journal_name" class="required input-block-level" value=""/></div>
+
+                                        </div>
+
+                                        <!--row-->
+
+                                        <div class="row">
+
+                                            <div class="span4">Author(s) Name<span>*</span>: </div>
+
+                                            <div class="span8">
+
+                                                <input type="text" name="authors" class="required input-block-level" value=""/>
+
+                                                <div class="help_text">Fill authors name separated by comma (,)</div>
+
+                                            </div>
+
+                                        </div>
+
+                                        <!--row-->
+
+                                        <div class="row">
+
+                                            <div class="span4">Subject<span>*</span>: </div>
+
+                                            <div class="span8">
+
+                                                <select name="subject" class="required select">
+
+                                                    <option value="">Select subject</option>
+
+                                                    <option value="1"  >Life sciences and Health Sciences</option>
+
+                                                    <option value="2" >Physical, Chemical Sciences & Engineering</option>
+
+                                                    <option value="3" >Arts and Humanities</option>
+
+<option value="4" >Accounting & Commerce</option>
+
+                                                </select>
+
+                                            </div>
+
+                                        </div>
+
+										
+
+										<!--row-->
+
+			<link href="http://www.journalijar.com/wp-content/themes/ijar/js/jquery.multiselect.css" rel="stylesheet" type="text/css">
+
+			<style>
+
+			ul,li { margin:0; padding:0; list-style:none;}
+
+			.label { color:#000; font-size:16px;}
+
+			</style>
+
+                                        <div class="row">
+
+                                            <div class="span4">Reviewers Area<span>*</span>: </div>
+
+                                            <div class="span8">
+
+											
+                                                <select id="langOpt2" multiple name="langOpt2[]">
+
+                                                    <option value="">Select field</option>
+
+													<option value='  Environment Impact Assessment'>  Environment Impact Assessment</option><option value='  GIS'>  GIS</option><option value=' Agronomy'> Agronomy</option><option value=' Analgesic'> Analgesic</option><option value=' Antenna Theory'> Antenna Theory</option><option value=' Antidiabetic'> Antidiabetic</option><option value=' Antioxidant'> Antioxidant</option><option value=' Ayurveda'> Ayurveda</option><option value=' Bank Marketing'> Bank Marketing</option><option value=' Behaviour  Ecology'> Behaviour  Ecology</option><option value=' Biodiversity and Conservation'> Biodiversity and Conservation</option><option value=' Bioinformatics'> Bioinformatics</option><option value=' Biotechnological tools and Techniques'> Biotechnological tools and Techniques</option><option value=' British Raj Fiction'> British Raj Fiction</option><option value=' Chemistry'> Chemistry</option><option value=' Computer Networks Security'> Computer Networks Security</option><option value=' Cytogenetics and Population Genetics'> Cytogenetics and Population Genetics</option><option value=' Economics  '> Economics  </option><option value=' Electrochemical Studies'> Electrochemical Studies</option><option value=' Embedded systems'> Embedded systems</option><option value=' Entomology'> Entomology</option><option value=' Entrepreneurial development'> Entrepreneurial development</option><option value=' Environment toxicology'> Environment toxicology</option><option value=' Environmental Science'> Environmental Science</option><option value=' Forensic Odontology'> Forensic Odontology</option><option value=' Fruit Science'> Fruit Science</option><option value=' Gastrointestinal Diseases.'> Gastrointestinal Diseases.</option><option value=' Geotechnical field '> Geotechnical field </option><option value=' Green Chemistry'> Green Chemistry</option><option value=' Horticulture Crops'> Horticulture Crops</option><option value=' Human Resource Management'> Human Resource Management</option><option value=' Humanities'> Humanities</option><option value=' Image processing'> Image processing</option><option value=' Information Retrieval'> Information Retrieval</option><option value=' Intelligent Agents (IA)'> Intelligent Agents (IA)</option><option value=' Inter Organizational Bullying'> Inter Organizational Bullying</option><option value=' LEADERSHIP'> LEADERSHIP</option><option value=' MARKETING MANAGEMENT'> MARKETING MANAGEMENT</option><option value=' Material Science and Solar Energy.'> Material Science and Solar Energy.</option><option value=' Medical Chemistry'> Medical Chemistry</option><option value=' Medicinal Chemistry'> Medicinal Chemistry</option><option value=' Medicinal Plants'> Medicinal Plants</option><option value=' Micro Finance'> Micro Finance</option><option value=' Molecular Biology'> Molecular Biology</option><option value=' Multi Agent (MA) Applications'> Multi Agent (MA) Applications</option><option value=' Nanotechnology'> Nanotechnology</option><option value=' ORGANIZATION RESEARCH'> ORGANIZATION RESEARCH</option><option value=' Organic synthesis'> Organic synthesis</option><option value=' Organometallic Chemistry'> Organometallic Chemistry</option><option value=' Ornithology'> Ornithology</option><option value=' Physics'> Physics</option><option value=' Polyphenolic Antioxidant'> Polyphenolic Antioxidant</option><option value=' Power Electronics'> Power Electronics</option><option value=' REPRODUCTIVEand RESPIRATORY SYSTEM'> REPRODUCTIVEand RESPIRATORY SYSTEM</option><option value=' Rural Development'> Rural Development</option><option value=' SCM'> SCM</option><option value=' STP ANALYSIS'> STP ANALYSIS</option><option value=' SWOT ANALYSIS'> SWOT ANALYSIS</option><option value=' Satellite Communication.'> Satellite Communication.</option><option value=' Semantic Web and GIS Applications.'> Semantic Web and GIS Applications.</option><option value=' Small inhibitor Immunotherapy'> Small inhibitor Immunotherapy</option><option value=' Social Science'> Social Science</option><option value=' Surface Analytical Techniques'> Surface Analytical Techniques</option><option value=' Sustainable Development'> Sustainable Development</option><option value=' Synthetic Chemistry'> Synthetic Chemistry</option><option value=' Tourism'> Tourism</option><option value=' Underwater Communication'> Underwater Communication</option><option value=' Vibration Analysis'> Vibration Analysis</option><option value=' Virology'> Virology</option><option value=' Water analysis and Purification methods.'> Water analysis and Purification methods.</option><option value=' Web Services'> Web Services</option><option value=' Wildlife Biology'> Wildlife Biology</option><option value=' Wildlife Conservation'> Wildlife Conservation</option><option value=' Work Life Practice'> Work Life Practice</option><option value=' communication Fiber'> communication Fiber</option><option value=' criminal procedural law'> criminal procedural law</option><option value=' microRNA'> microRNA</option><option value='Agricultural and Seeds Biotechnology'>Agricultural and Seeds Biotechnology</option><option value='Agricultural sector'>Agricultural sector</option><option value='Animal Sciences'>Animal Sciences</option><option value='Anti-Inflammatory'>Anti-Inflammatory</option><option value='Artificial Intelligent (AI) and its Applications'>Artificial Intelligent (AI) and its Applications</option><option value='Ayurveda'>Ayurveda</option><option value='BIOCHEMISTRY'>BIOCHEMISTRY</option><option value='BUSINESS MANAGEMENT'>BUSINESS MANAGEMENT</option><option value='Biochemistry'>Biochemistry</option><option value='Biological Sciences'>Biological Sciences</option><option value='Biotechnology'>Biotechnology</option><option value='CRM'>CRM</option><option value='Chemical Engineering'>Chemical Engineering</option><option value='Chemistry'>Chemistry</option><option value='Civil engineering Transportation'>Civil engineering Transportation</option><option value='Communication Engineering'>Communication Engineering</option><option value='Corrosion Control Methods'>Corrosion Control Methods</option><option value='Dental Chemistry'>Dental Chemistry</option><option value='Dermatology'>Dermatology</option><option value='Electric Machines'>Electric Machines</option><option value='Entomology'>Entomology</option><option value='Glioblastoma Invasion'>Glioblastoma Invasion</option><option value='Horticultural Crops'>Horticultural Crops</option><option value='Inorganic Chemistry'>Inorganic Chemistry</option><option value='Law'>Law</option><option value='Livestock and Avian Production Management.'>Livestock and Avian Production Management.</option><option value='Macrocyclic Metal Complex Chemistry'>Macrocyclic Metal Complex Chemistry</option><option value='Management'>Management</option><option value='Management Marketing'>Management Marketing</option><option value='Medical Biochemistry'>Medical Biochemistry</option><option value='Microbiology'>Microbiology</option><option value='Molecular biology'>Molecular biology</option><option value='Nano Electronics'>Nano Electronics</option><option value='Nanotechnology'>Nanotechnology</option><option value='Neurotoxicology Stress and Behavior'>Neurotoxicology Stress and Behavior</option><option value='Not Listed'>Not Listed</option><option value='Obesity'>Obesity</option><option value='Operations management'>Operations management</option><option value='Oral Pathology'>Oral Pathology</option><option value='Oral and Maxillofacial Surgery'>Oral and Maxillofacial Surgery</option><option value='Orthopedic Physiotherapy'>Orthopedic Physiotherapy</option><option value='Panchkarma'>Panchkarma</option><option value='Pattern Recognition'>Pattern Recognition</option><option value='Periodontology'>Periodontology</option><option value='Pharmaceutical'>Pharmaceutical</option><option value='Photonics'>Photonics</option><option value='Physical Science'>Physical Science</option><option value='Plant Breeding and Genetics'>Plant Breeding and Genetics</option><option value='Post Colonial Studies'>Post Colonial Studies</option><option value='Social Science'>Social Science</option><option value='Social Sciences & Humanities'>Social Sciences & Humanities</option><option value='Supramolecular Chemistry'>Supramolecular Chemistry</option><option value='Synthetic Organic Chemistry'>Synthetic Organic Chemistry</option><option value='Wireless Communication'>Wireless Communication</option>
+                                                </select>
+
+												
+
+								<script src="http://www.journalijar.com/wp-content/themes/ijar/js/jquery.multiselect.js"></script>
+
+								<script>
+
+								$('#langOpt').multiselect({
+
+									columns: 1,
+
+									placeholder: 'Select Area'
+
+								});
+
+
+
+								$('#langOpt2').multiselect({
+
+									columns: 1,
+
+									placeholder: 'Select Area',
+
+									search: true
+
+								});
+
+
+
+								$('#langOpt3').multiselect({
+
+									columns: 1,
+
+									placeholder: 'Select Area',
+
+									search: true,
+
+									selectAll: true
+
+								});
+
+
+
+								$('#langOptgroup').multiselect({
+
+									columns: 4,
+
+									placeholder: 'Select Area',
+
+									search: true,
+
+									selectAll: true
+
+								});
+
+								</script>
+
+                                            </div>
+
+                                        </div>								
+
+
+
+                                        <div class="row">
+
+                                            <div class="span4">Abstract<!--<span>*</span>-->: </div>
+
+                                            <div class="span8">
+
+                                                <textarea name="abstract" rows="4" cols="14" class="input-block-level" ></textarea>
+
+
+
+                                                <div style="width: auto;" class="charleft originalTextareaInfo"><span></span></div>
+
+                                                <div id="textAreaCallback_1"></div>
+
+                                               
+
+                                            </div>
+
+                                        </div>
+
+                                        <!--row-->
+
+                                        <div class="row">
+
+                                            <div class="span4">Upload File<span>*</span>: </div>
+
+                                            <div class="span8"><input type="file" name="file" class="required input-block-level"/>
+
+											<div class="help_text" style="margin-top:10px;">Upload only word file</div>
+
+											</div>
+
+											
+
+                                        </div> 
+
+                                        <!--row-->
+
+                                        <div class="row">
+
+                                            <div class="span12"><h4 >Corresponding Authors Detail:</h4></div>                                           
+
+                                        </div>
+
+                                        <!--row-->                                        
+
+                                        <div class="row">
+
+                                            <div class="span4">Name<span>*</span>: </div>
+
+                                            <div class="span8"><input type="text" name="username" class="required input-block-level" value=""/></div>
+
+                                        </div>
+										
+										<!-- New field user affiliation -->
+										<div class="row">
+
+                                            <div class="span4">Affiliation</div>
+
+                                            <div class="span8"><input type="text" name="user_afflication" class="input-block-level" value=""/></div>
+
+                                        </div>
+
+                                        <!--row-->
+
+                                        <div class="row">
+
+                                            <div class="span4">Email<span>*</span>: </div>
+
+                                            <div class="span8">
+
+                                                <input type="text" name="email" id="email" class="required email input-block-level" value=""/>
+
+                                                <div>We will inform you on above email address, when your article is approved.</div>
+
+                                            </div>
+
+                                        </div>
+
+										
+
+										<div class="row">
+
+                                            <div class="span4">Alternate Email 1: </div>
+
+										<div class="span8">
+										<input type="email" placeholder="Enter a valid email address" name="optional_email[]" id="optional_email1" class=" input-block-level" value=""/>
+										</div>
+
+                                        </div>    
+
+
+
+										<div class="row">
+
+                                            <div class="span4">Alternate Email 2: </div>
+
+                                            <div class="span8"><input type="email" placeholder="Enter a valid email address" name="optional_email[]" id="optional_email2" class=" input-block-level" value=""/></div>
+
+                                        </div>
+
+										
+
+
+
+								<!--row-->
+
+                                        <div class="row">
+
+                                            <div class="span4">Countries<span>*</span>: </div>
+
+                                            <div class="span8">
+
+											
+											<select name="country" id="country" size="1"  class="required select">
+
+
+
+											<option value="">Country...</option>
+
+												<option value='Afghanistan'>Afghanistan</option><option value='Aland Islands'>Aland Islands</option><option value='Albania'>Albania</option><option value='Algeria'>Algeria</option><option value='American Samoa'>American Samoa</option><option value='Andorra'>Andorra</option><option value='Angola'>Angola</option><option value='Anguilla'>Anguilla</option><option value='Antarctica'>Antarctica</option><option value='Antigua and Barbuda'>Antigua and Barbuda</option><option value='Argentina'>Argentina</option><option value='Armenia'>Armenia</option><option value='Aruba'>Aruba</option><option value='Australia'>Australia</option><option value='Austria'>Austria</option><option value='Azerbaijan'>Azerbaijan</option><option value='Bahamas'>Bahamas</option><option value='Bahrain'>Bahrain</option><option value='Bangladesh'>Bangladesh</option><option value='Barbados'>Barbados</option><option value='Belarus'>Belarus</option><option value='Belgium'>Belgium</option><option value='Belize'>Belize</option><option value='Benin'>Benin</option><option value='Bermuda'>Bermuda</option><option value='Bhutan'>Bhutan</option><option value='Bolivia, Plurinational State of'>Bolivia, Plurinational State of</option><option value='Bonaire, Sint Eustatius and Saba'>Bonaire, Sint Eustatius and Saba</option><option value='Bosnia and Herzegovina'>Bosnia and Herzegovina</option><option value='Botswana'>Botswana</option><option value='Bouvet Island'>Bouvet Island</option><option value='Brazil'>Brazil</option><option value='British Indian Ocean Territory'>British Indian Ocean Territory</option><option value='Brunei Darussalam'>Brunei Darussalam</option><option value='Bulgaria'>Bulgaria</option><option value='Burkina Faso'>Burkina Faso</option><option value='Burundi'>Burundi</option><option value='Cambodia'>Cambodia</option><option value='Cameroon'>Cameroon</option><option value='Canada'>Canada</option><option value='Cape Verde'>Cape Verde</option><option value='Cayman Islands'>Cayman Islands</option><option value='Central African Republic'>Central African Republic</option><option value='Chad'>Chad</option><option value='Chile'>Chile</option><option value='China'>China</option><option value='Christmas Island'>Christmas Island</option><option value='Cocos (Keeling) Islands'>Cocos (Keeling) Islands</option><option value='Colombia'>Colombia</option><option value='Comoros'>Comoros</option><option value='Congo'>Congo</option><option value='Congo, The Democratic Republic of the'>Congo, The Democratic Republic of the</option><option value='Cook Islands'>Cook Islands</option><option value='Costa Rica'>Costa Rica</option><option value='Cote d'Ivoire'>Cote d'Ivoire</option><option value='Croatia'>Croatia</option><option value='Cuba'>Cuba</option><option value='Curacao'>Curacao</option><option value='Cyprus'>Cyprus</option><option value='Czech Republic'>Czech Republic</option><option value='Denmark'>Denmark</option><option value='Djibouti'>Djibouti</option><option value='Dominica'>Dominica</option><option value='Dominican Republic'>Dominican Republic</option><option value='Ecuador'>Ecuador</option><option value='Egypt'>Egypt</option><option value='El Salvador'>El Salvador</option><option value='Equatorial Guinea'>Equatorial Guinea</option><option value='Eritrea'>Eritrea</option><option value='Estonia'>Estonia</option><option value='Ethiopia'>Ethiopia</option><option value='Falkland Islands (Malvinas)'>Falkland Islands (Malvinas)</option><option value='Faroe Islands'>Faroe Islands</option><option value='Fiji'>Fiji</option><option value='Finland'>Finland</option><option value='France'>France</option><option value='French Guiana'>French Guiana</option><option value='French Polynesia'>French Polynesia</option><option value='French Southern Territories'>French Southern Territories</option><option value='Gabon'>Gabon</option><option value='Gambia'>Gambia</option><option value='Georgia'>Georgia</option><option value='Germany'>Germany</option><option value='Ghana'>Ghana</option><option value='Gibraltar'>Gibraltar</option><option value='Greece'>Greece</option><option value='Greenland'>Greenland</option><option value='Grenada'>Grenada</option><option value='Guadeloupe'>Guadeloupe</option><option value='Guam'>Guam</option><option value='Guatemala'>Guatemala</option><option value='Guernsey'>Guernsey</option><option value='Guinea'>Guinea</option><option value='Guinea-Bissau'>Guinea-Bissau</option><option value='Guyana'>Guyana</option><option value='Haiti'>Haiti</option><option value='Heard Island and McDonald Islands'>Heard Island and McDonald Islands</option><option value='Holy See (Vatican City State)'>Holy See (Vatican City State)</option><option value='Honduras'>Honduras</option><option value='Hong Kong'>Hong Kong</option><option value='Hungary'>Hungary</option><option value='Iceland'>Iceland</option><option value='India'>India</option><option value='Indonesia'>Indonesia</option><option value='Iran, Islamic Republic of'>Iran, Islamic Republic of</option><option value='Iraq'>Iraq</option><option value='Ireland'>Ireland</option><option value='Isle of Man'>Isle of Man</option><option value='Israel'>Israel</option><option value='Italy'>Italy</option><option value='Jamaica'>Jamaica</option><option value='Japan'>Japan</option><option value='Jersey'>Jersey</option><option value='Jordan'>Jordan</option><option value='Kazakhstan'>Kazakhstan</option><option value='Kenya'>Kenya</option><option value='Kiribati'>Kiribati</option><option value='Korea, Democratic People's Republic of'>Korea, Democratic People's Republic of</option><option value='Korea, Republic of'>Korea, Republic of</option><option value='Kuwait'>Kuwait</option><option value='Kyrgyzstan'>Kyrgyzstan</option><option value='Lao People's Democratic Republic'>Lao People's Democratic Republic</option><option value='Latvia'>Latvia</option><option value='Lebanon'>Lebanon</option><option value='Lesotho'>Lesotho</option><option value='Liberia'>Liberia</option><option value='Libyan Arab Jamahiriya'>Libyan Arab Jamahiriya</option><option value='Liechtenstein'>Liechtenstein</option><option value='Lithuania'>Lithuania</option><option value='Luxembourg'>Luxembourg</option><option value='Macao'>Macao</option><option value='Macedonia, The former Yugoslav Republic of'>Macedonia, The former Yugoslav Republic of</option><option value='Madagascar'>Madagascar</option><option value='Malawi'>Malawi</option><option value='Malaysia'>Malaysia</option><option value='Maldives'>Maldives</option><option value='Mali'>Mali</option><option value='Malta'>Malta</option><option value='Marshall Islands'>Marshall Islands</option><option value='Martinique'>Martinique</option><option value='Mauritania'>Mauritania</option><option value='Mauritius'>Mauritius</option><option value='Mayotte'>Mayotte</option><option value='Mexico'>Mexico</option><option value='Micronesia, Federated States of'>Micronesia, Federated States of</option><option value='Moldova, Republic of'>Moldova, Republic of</option><option value='Monaco'>Monaco</option><option value='Mongolia'>Mongolia</option><option value='Montenegro'>Montenegro</option><option value='Montserrat'>Montserrat</option><option value='Morocco'>Morocco</option><option value='Mozambique'>Mozambique</option><option value='Myanmar'>Myanmar</option><option value='Namibia'>Namibia</option><option value='Nauru'>Nauru</option><option value='Nepal'>Nepal</option><option value='Netherlands'>Netherlands</option><option value='New Caledonia'>New Caledonia</option><option value='New Zealand'>New Zealand</option><option value='Nicaragua'>Nicaragua</option><option value='Niger'>Niger</option><option value='Nigeria'>Nigeria</option><option value='Niue'>Niue</option><option value='Norfolk Island'>Norfolk Island</option><option value='Northern Mariana Islands'>Northern Mariana Islands</option><option value='Norway'>Norway</option><option value='Oman'>Oman</option><option value='Pakistan'>Pakistan</option><option value='Palau'>Palau</option><option value='Palestinian Territory, Occupied'>Palestinian Territory, Occupied</option><option value='Panama'>Panama</option><option value='Papua New Guinea'>Papua New Guinea</option><option value='Paraguay'>Paraguay</option><option value='Peru'>Peru</option><option value='Philippines'>Philippines</option><option value='Pitcairn'>Pitcairn</option><option value='Poland'>Poland</option><option value='Portugal'>Portugal</option><option value='Puerto Rico'>Puerto Rico</option><option value='Qatar'>Qatar</option><option value='Reunion'>Reunion</option><option value='Romania'>Romania</option><option value='Russian Federation'>Russian Federation</option><option value='Rwanda'>Rwanda</option><option value='Saint Barthelemy'>Saint Barthelemy</option><option value='Saint Helena, Ascension and Tristan Da Cunha'>Saint Helena, Ascension and Tristan Da Cunha</option><option value='Saint Kitts and Nevis'>Saint Kitts and Nevis</option><option value='Saint Lucia'>Saint Lucia</option><option value='Saint Martin (French Part)'>Saint Martin (French Part)</option><option value='Saint Pierre and Miquelon'>Saint Pierre and Miquelon</option><option value='Saint Vincent and The Grenadines'>Saint Vincent and The Grenadines</option><option value='Samoa'>Samoa</option><option value='San Marino'>San Marino</option><option value='Sao Tome and Principe'>Sao Tome and Principe</option><option value='Saudi Arabia'>Saudi Arabia</option><option value='Senegal'>Senegal</option><option value='Serbia'>Serbia</option><option value='Seychelles'>Seychelles</option><option value='Sierra Leone'>Sierra Leone</option><option value='Singapore'>Singapore</option><option value='Sint Maarten (Dutch Part)'>Sint Maarten (Dutch Part)</option><option value='Slovakia'>Slovakia</option><option value='Slovenia'>Slovenia</option><option value='Solomon Islands'>Solomon Islands</option><option value='Somalia'>Somalia</option><option value='South Africa'>South Africa</option><option value='South Georgia and The South Sandwich Islands'>South Georgia and The South Sandwich Islands</option><option value='South Sudan'>South Sudan</option><option value='Spain'>Spain</option><option value='Sri Lanka'>Sri Lanka</option><option value='Sudan'>Sudan</option><option value='Suriname'>Suriname</option><option value='Svalbard and Jan Mayen'>Svalbard and Jan Mayen</option><option value='Swaziland'>Swaziland</option><option value='Sweden'>Sweden</option><option value='Switzerland'>Switzerland</option><option value='Syrian Arab Republic'>Syrian Arab Republic</option><option value='Taiwan, Province of China'>Taiwan, Province of China</option><option value='Tajikistan'>Tajikistan</option><option value='Tanzania, United Republic of'>Tanzania, United Republic of</option><option value='Thailand'>Thailand</option><option value='Timor-Leste'>Timor-Leste</option><option value='Togo'>Togo</option><option value='Tokelau'>Tokelau</option><option value='Tonga'>Tonga</option><option value='Trinidad and Tobago'>Trinidad and Tobago</option><option value='Tunisia'>Tunisia</option><option value='Turkey'>Turkey</option><option value='Turkmenistan'>Turkmenistan</option><option value='Turks and Caicos Islands'>Turks and Caicos Islands</option><option value='Tuvalu'>Tuvalu</option><option value='Uganda'>Uganda</option><option value='Ukraine'>Ukraine</option><option value='United Arab Emirates'>United Arab Emirates</option><option value='United Kingdom'>United Kingdom</option><option value='United States'>United States</option><option value='United States Minor Outlying Islands'>United States Minor Outlying Islands</option><option value='Uruguay'>Uruguay</option><option value='Uzbekistan'>Uzbekistan</option><option value='Vanuatu'>Vanuatu</option><option value='Venezuela, Bolivarian Republic of'>Venezuela, Bolivarian Republic of</option><option value='Viet Nam'>Viet Nam</option><option value='Virgin Islands, British'>Virgin Islands, British</option><option value='Virgin Islands, U.S.'>Virgin Islands, U.S.</option><option value='Wallis and Futuna'>Wallis and Futuna</option><option value='Western Sahara'>Western Sahara</option><option value='Yemen'>Yemen</option><option value='Zambia'>Zambia</option><option value='Zimbabwe'>Zimbabwe</option>
+												</select>
+
+											
+
+											
+
+											</div>
+
+                                        </div>
+
+
+
+
+
+                                        <!--row-->
+
+                                        <div class="row">
+
+                                            <div class="span4">Phone (for SMS alerts)<span>*</span>: </div>
+
+                                            <div class="span8"><input type="text" name="phone" class="required input-block-level" value=""/></div>
+
+                                        </div>
+
+										
+
+                                        <!--row-->
+
+										<div class="row">
+
+                                            <div class="span4">Captcha<span>*</span>: </div>
+
+                                            <div class="span8">
+
+                                                 <input type="text" class="required" name="captcha_code" value="" />
+
+											
+
+	   									 <input type="hidden" name="captcha_prefix" value="691407381" />
+
+                                                <div>Please fill the code shown in image.</div>
+
+                                            </div>
+
+                                        </div>
+
+										<div class="row">
+
+                                            <div id="formloader" style="display:none;"></div>
+
+                                        </div>
+
+										<!--row-->
+
+										
+
+                                        <div class="row">
+
+                                            <div class="span4">&nbsp;</div>
+
+                                            <div class="span8"><button type="submit" class="btn btn-primary" value="Submit">Submit</button></div>
+
+                                        </div>
+
+                                    </form>
+
+                                </div>
+
+                            
+
+                            
+                        </div>                    
+
+                    
+                </div>
+	
+				
+				
+   
+	

@@ -1,0 +1,88 @@
+body {
+  font-family: BlinkMacSystemFont,-apple-system,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue","Helvetica","Arial",sans-serif;
+  font-weight: 200;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: whitesmoke;
+}
+
+.navbar{
+  height:75px;
+  background-color: #00f;
+}
+
+.nav-links {
+  color: white;
+  font-size: 18px;
+}
+
+.nav-links:hover {
+  background-color: transparent;
+  color: #000;
+  transition: color 250ms ease-in;
+}
+
+.table-link {
+  color: #000;
+  transition: color 250ms ease-in;
+}
+
+.table-link:hover {
+  color: #ff0b0b;
+}
+
+.page-footer {
+  background-color: #00F;
+  padding: 10px;
+}
+
+.page-footer a {
+  color: #777676;
+  font-size: 15px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.page-footer a:hover {
+  color: #000;
+  transition: color 250ms ease-in;
+}
+
+.brand-logo {
+  text-align: center;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+.brand-logo h4{
+  font-size: 25px;
+  margin-bottom: 5px;
+}
+
+.brand-logo h5 {
+  font-size: 15px;
+  margin-bottom: 3px;
+  padding: 0;
+}
+
+.intro {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.section {
+  width: 200px;
+  height: 300px;
+}
+.slider {
+  margin-top: 10px;
+}
+
+.section li a {
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+main {
+  flex: 1 0 auto;
+}
